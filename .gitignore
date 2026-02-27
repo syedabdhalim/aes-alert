@@ -1,0 +1,28 @@
+# Built outputs
+*.iml
+/build
+/app/build
+/captures
+.gradle
+.cxx
+.externalNativeBuild
+
+# Local config
+local.properties
+
+# IDE
+/.idea
+.DS_Store
+
+# Keystore / signing 
+*.jks
+*.keystore
+keystore.properties
+
+# Kotlin / Java
+*.class
+*.jar
+
+# Generated
+/app/release
+/app/debug
