@@ -206,7 +206,7 @@ Step 3: After Passing
 ## Project Structure
 
 ```
-app/src/main/java/com/syed/aesalert/
+app/src/main/java/com/aesalert/app/
 |
 +-- MainActivity.kt              # Entry point, permissions, navigation
 +-- BootReceiver.kt              # Auto-start on device boot
