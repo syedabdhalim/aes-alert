@@ -5,7 +5,6 @@
 ![Language](https://img.shields.io/badge/language-Kotlin-7F52FF?logo=kotlin&logoColor=white)
 ![UI](https://img.shields.io/badge/UI-Jetpack%20Compose-4285F4)
 ![Offline](https://img.shields.io/badge/offline-yes-success)
-![Free](https://img.shields.io/badge/free-no%20ads%2C%20no%20account-success)
 
 Fully offline Android app that warns drivers when approaching AES/AWAS speed enforcement cameras on Malaysian highways. Runs as a persistent foreground GPS service.
 
