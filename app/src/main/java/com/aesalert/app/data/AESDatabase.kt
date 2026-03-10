@@ -1,4 +1,4 @@
-package com.syed.aesalert.data
+package com.aesalert.app.data
 
 import android.content.Context
 import androidx.room.Database

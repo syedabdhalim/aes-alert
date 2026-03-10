@@ -1,4 +1,4 @@
-package com.syed.aesalert.logic
+package com.aesalert.app.logic
 
 import android.media.AudioManager
 import android.media.ToneGenerator

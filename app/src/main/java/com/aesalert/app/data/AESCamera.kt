@@ -1,4 +1,4 @@
-package com.syed.aesalert.data
+package com.aesalert.app.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

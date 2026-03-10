@@ -1,4 +1,4 @@
-package com.syed.aesalert.service
+package com.aesalert.app.service
 
 import android.Manifest
 import android.app.Notification
@@ -17,15 +17,15 @@ import android.os.IBinder
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
-import com.syed.aesalert.MainActivity
-import com.syed.aesalert.R
-import com.syed.aesalert.data.AESDatabase
-import com.syed.aesalert.data.AppSettings
-import com.syed.aesalert.logic.AlertManager
-import com.syed.aesalert.logic.AlertState
-import com.syed.aesalert.logic.CameraAlert
-import com.syed.aesalert.logic.ProximityEngine
-import com.syed.aesalert.logic.RouteSimulator
+import com.aesalert.app.MainActivity
+import com.aesalert.app.R
+import com.aesalert.app.data.AESDatabase
+import com.aesalert.app.data.AppSettings
+import com.aesalert.app.logic.AlertManager
+import com.aesalert.app.logic.AlertState
+import com.aesalert.app.logic.CameraAlert
+import com.aesalert.app.logic.ProximityEngine
+import com.aesalert.app.logic.RouteSimulator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

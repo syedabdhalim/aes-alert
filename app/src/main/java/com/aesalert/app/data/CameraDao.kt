@@ -1,4 +1,4 @@
-package com.syed.aesalert.data
+package com.aesalert.app.data
 
 import androidx.room.Dao
 import androidx.room.Insert

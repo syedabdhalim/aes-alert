@@ -1,4 +1,4 @@
-package com.syed.aesalert.ui
+package com.aesalert.app.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -25,15 +25,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.syed.aesalert.logic.AlertState
-import com.syed.aesalert.service.LocationState
-import com.syed.aesalert.ui.theme.AlertRed
-import com.syed.aesalert.ui.theme.DarkBg
-import com.syed.aesalert.ui.theme.InfoBlue
-import com.syed.aesalert.ui.theme.SafeGreen
-import com.syed.aesalert.ui.theme.SpeedWhite
-import com.syed.aesalert.ui.theme.SurfaceDark
-import com.syed.aesalert.ui.theme.WarningAmber
+import com.aesalert.app.logic.AlertState
+import com.aesalert.app.service.LocationState
+import com.aesalert.app.ui.theme.AlertRed
+import com.aesalert.app.ui.theme.DarkBg
+import com.aesalert.app.ui.theme.InfoBlue
+import com.aesalert.app.ui.theme.SafeGreen
+import com.aesalert.app.ui.theme.SpeedWhite
+import com.aesalert.app.ui.theme.SurfaceDark
+import com.aesalert.app.ui.theme.WarningAmber
 
 @Composable
 fun MainScreen(

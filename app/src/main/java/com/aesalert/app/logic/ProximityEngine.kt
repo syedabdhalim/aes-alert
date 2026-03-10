@@ -1,6 +1,6 @@
-package com.syed.aesalert.logic
+package com.aesalert.app.logic
 
-import com.syed.aesalert.data.AESCamera
+import com.aesalert.app.data.AESCamera
 import kotlin.math.abs
 import kotlin.math.atan2
 import kotlin.math.cos

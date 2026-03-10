@@ -1,4 +1,4 @@
-package com.syed.aesalert
+package com.aesalert.app
 
 import android.content.BroadcastReceiver
 import android.content.Context

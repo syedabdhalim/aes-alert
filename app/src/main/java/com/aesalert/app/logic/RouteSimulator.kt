@@ -1,4 +1,4 @@
-package com.syed.aesalert.logic
+package com.aesalert.app.logic
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow

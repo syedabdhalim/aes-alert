@@ -1,4 +1,4 @@
-package com.syed.aesalert.data
+package com.aesalert.app.data
 
 /**
  * AES/AWAS Speed Camera Data for Malaysia

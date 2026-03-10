@@ -1,4 +1,4 @@
-package com.syed.aesalert
+package com.aesalert.app
 
 import android.Manifest
 import android.content.ComponentName
@@ -19,17 +19,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.core.content.ContextCompat
-import com.syed.aesalert.data.AESCamera
-import com.syed.aesalert.data.AESDatabase
-import com.syed.aesalert.data.AppSettings
-import com.syed.aesalert.data.CameraData
-import com.syed.aesalert.service.LocationState
-import com.syed.aesalert.service.LocationTrackingService
-import com.syed.aesalert.ui.CameraListScreen
-import com.syed.aesalert.ui.EditCameraDialog
-import com.syed.aesalert.ui.MainScreen
-import com.syed.aesalert.ui.SettingsDialog
-import com.syed.aesalert.ui.theme.AESAlertTheme
+import com.aesalert.app.data.AESCamera
+import com.aesalert.app.data.AESDatabase
+import com.aesalert.app.data.AppSettings
+import com.aesalert.app.data.CameraData
+import com.aesalert.app.service.LocationState
+import com.aesalert.app.service.LocationTrackingService
+import com.aesalert.app.ui.CameraListScreen
+import com.aesalert.app.ui.EditCameraDialog
+import com.aesalert.app.ui.MainScreen
+import com.aesalert.app.ui.SettingsDialog
+import com.aesalert.app.ui.theme.AESAlertTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -1,4 +1,4 @@
-package com.syed.aesalert.ui
+package com.aesalert.app.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -26,11 +26,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.syed.aesalert.data.AppSettings
-import com.syed.aesalert.ui.theme.InfoBlue
-import com.syed.aesalert.ui.theme.SafeGreen
-import com.syed.aesalert.ui.theme.SpeedWhite
-import com.syed.aesalert.ui.theme.SurfaceDark
+import com.aesalert.app.data.AppSettings
+import com.aesalert.app.ui.theme.InfoBlue
+import com.aesalert.app.ui.theme.SafeGreen
+import com.aesalert.app.ui.theme.SpeedWhite
+import com.aesalert.app.ui.theme.SurfaceDark
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

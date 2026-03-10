@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.syed.aesalert"
+    namespace = "com.aesalert.app"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.syed.aesalert"
+        applicationId = "com.aesalert.app"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

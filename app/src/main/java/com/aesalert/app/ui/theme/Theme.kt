@@ -1,4 +1,4 @@
-package com.syed.aesalert.ui.theme
+package com.aesalert.app.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
