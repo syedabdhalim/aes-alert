@@ -128,7 +128,20 @@ com.aesalert.app/
 
 ---
 
-## Build & Install
+## Installation
+
+Download the latest APK from the [Releases](https://github.com/syedabdhalim/aes-alert/releases) tab.
+
+1. Transfer the APK to your Android device via USB or any storage
+2. On your device: **Settings > Security > Unknown Sources** (or **Install unknown apps**) — enable for your file manager
+3. Open the APK with your file manager and install
+4. Grant location permissions when prompted
+
+> Tested on Android car head units and tablets (Android 8.0+)
+
+---
+
+## Build from Source
 
 ```bash
 # Debug APK
@@ -141,7 +154,7 @@ com.aesalert.app/
 ./gradlew assembleRelease
 ```
 
-Requires Android Studio with Android SDK 35. To sideload on a car head unit, enable **Unknown Sources** in device settings, transfer the APK via USB, and install with any file manager.
+Requires Android Studio with Android SDK 35.
 
 ---
 
@@ -162,4 +175,6 @@ Requires Android Studio with Android SDK 35. To sideload on a car head unit, ena
 ## Disclaimer
 
 This app is for informational purposes only. It is the driver's sole responsibility to obey all traffic laws and speed limits at all times.
+
+Speed displayed is GPS-derived and may differ from your vehicle's speedometer. This is normal - most speedometers are calibrated to read slightly higher than actual speed by design.
 
