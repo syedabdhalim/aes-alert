@@ -8,11 +8,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -27,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.aesalert.app.data.AppSettings
+import com.aesalert.app.ui.theme.AlertRed
 import com.aesalert.app.ui.theme.InfoBlue
 import com.aesalert.app.ui.theme.SafeGreen
 import com.aesalert.app.ui.theme.SpeedWhite
@@ -36,6 +39,9 @@ import com.aesalert.app.ui.theme.SurfaceDark
 @Composable
 fun SettingsDialog(
     currentDistanceM: Int,
+    isSimulating: Boolean,
+    onSimulate: (String) -> Unit,
+    onStopSimulation: () -> Unit,
     onDismiss: () -> Unit,
     onSave: (distanceM: Int) -> Unit
 ) {
@@ -104,6 +110,28 @@ fun SettingsDialog(
                     color = SpeedWhite.copy(alpha = 0.4f),
                     fontSize = 12.sp
                 )
+
+                Spacer(modifier = Modifier.height(20.dp))
+                HorizontalDivider(color = SpeedWhite.copy(alpha = 0.1f))
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    text = "Simulation",
+                    color = SpeedWhite.copy(alpha = 0.6f),
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Medium
+                )
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    if (isSimulating) {
+                        SimChip("Stop Simulation", AlertRed) { onStopSimulation() }
+                    } else {
+                        SimChip("Sim Kajang", InfoBlue) { onSimulate("kajang") }
+                        SimChip("Sim JB", InfoBlue) { onSimulate("jb") }
+                    }
+                }
             }
         },
         confirmButton = {
@@ -117,4 +145,17 @@ fun SettingsDialog(
             }
         }
     )
+}
+
+@Composable
+private fun SimChip(text: String, color: androidx.compose.ui.graphics.Color, onClick: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .clip(RoundedCornerShape(6.dp))
+            .border(1.dp, color.copy(alpha = 0.5f), RoundedCornerShape(6.dp))
+            .clickable { onClick() }
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+    ) {
+        Text(text = text, color = color, fontSize = 13.sp, fontWeight = FontWeight.Medium)
+    }
 }

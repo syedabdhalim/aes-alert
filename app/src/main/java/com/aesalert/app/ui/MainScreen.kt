@@ -18,6 +18,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -38,24 +42,31 @@ import com.aesalert.app.ui.theme.WarningAmber
 @Composable
 fun MainScreen(
     locationState: LocationState,
-    onSimulate: (String) -> Unit = {},
-    onStopSimulation: () -> Unit = {},
     onOpenCameras: () -> Unit = {},
     onOpenSettings: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val alert = locationState.alert
+    var dismissedCameraId by remember { mutableStateOf<Int?>(null) }
     val isAlertActive = alert != null &&
-            (alert.state == AlertState.APPROACHING || alert.state == AlertState.PASSING)
+            (alert.state == AlertState.APPROACHING || alert.state == AlertState.PASSING) &&
+            alert.camera?.id != dismissedCameraId
+
+    // Reset dismissed state when a new camera is detected
+    if (alert?.camera?.id != null && alert.camera.id != dismissedCameraId &&
+        alert.state == AlertState.CLEAR) {
+        dismissedCameraId = null
+    }
 
     Box(modifier = modifier.fillMaxSize().background(DarkBg)) {
         if (isAlertActive && alert != null) {
-            AlertOverlay(alert = alert)
+            AlertOverlay(
+                alert = alert,
+                onDismiss = { dismissedCameraId = alert.camera?.id }
+            )
         } else {
             DashboardContent(
                 locationState = locationState,
-                onSimulate = onSimulate,
-                onStopSimulation = onStopSimulation,
                 onOpenCameras = onOpenCameras,
                 onOpenSettings = onOpenSettings
             )
@@ -66,8 +77,6 @@ fun MainScreen(
 @Composable
 private fun DashboardContent(
     locationState: LocationState,
-    onSimulate: (String) -> Unit,
-    onStopSimulation: () -> Unit,
     onOpenCameras: () -> Unit,
     onOpenSettings: () -> Unit
 ) {
@@ -222,31 +231,17 @@ private fun DashboardContent(
             }
         }
 
-        // Simulation controls
+        // Bottom bar
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(SurfaceDark)
                 .padding(horizontal = 16.dp, vertical = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            horizontalArrangement = Arrangement.End,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = "TEST:",
-                color = SpeedWhite.copy(alpha = 0.4f),
-                fontSize = 12.sp
-            )
-
-            if (locationState.simulating) {
-                SimButton("Stop", AlertRed) { onStopSimulation() }
-            } else {
-                SimButton("Sim Kajang", InfoBlue) { onSimulate("kajang") }
-                SimButton("Sim JB", InfoBlue) { onSimulate("jb") }
-            }
-
-            Spacer(modifier = Modifier.weight(1f))
-
             SimButton("Settings", SpeedWhite.copy(alpha = 0.6f)) { onOpenSettings() }
+            Spacer(modifier = Modifier.width(12.dp))
             SimButton("Cameras", WarningAmber) { onOpenCameras() }
         }
     }

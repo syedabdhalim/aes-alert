@@ -116,8 +116,6 @@ class MainActivity : ComponentActivity() {
                 } else {
                     MainScreen(
                         locationState = locationState,
-                        onSimulate = { route -> trackingService?.startSimulation(route) },
-                        onStopSimulation = { trackingService?.stopSimulation() },
                         onOpenCameras = { showCameraList = true },
                         onOpenSettings = { showSettings = true }
                     )
@@ -141,6 +139,9 @@ class MainActivity : ComponentActivity() {
                 if (showSettings) {
                     SettingsDialog(
                         currentDistanceM = appSettings.alertDistanceM,
+                        isSimulating = locationState.simulating,
+                        onSimulate = { route -> trackingService?.startSimulation(route) },
+                        onStopSimulation = { trackingService?.stopSimulation() },
                         onDismiss = { showSettings = false },
                         onSave = { distanceM ->
                             appSettings.alertDistanceM = distanceM

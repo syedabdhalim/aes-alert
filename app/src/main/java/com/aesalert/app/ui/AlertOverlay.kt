@@ -5,6 +5,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,6 +36,7 @@ import com.aesalert.app.ui.theme.WarningAmber
 @Composable
 fun AlertOverlay(
     alert: CameraAlert,
+    onDismiss: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val camera = alert.camera ?: return
@@ -54,6 +56,23 @@ fun AlertOverlay(
                 .padding(24.dp),
             contentAlignment = Alignment.Center
         ) {
+            // Dismiss button
+            Box(
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .clip(RoundedCornerShape(8.dp))
+                    .clickable { onDismiss() }
+                    .border(1.dp, SpeedWhite.copy(alpha = 0.3f), RoundedCornerShape(8.dp))
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
+            ) {
+                Text(
+                    text = "DISMISS",
+                    color = SpeedWhite.copy(alpha = 0.6f),
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Medium
+                )
+            }
+
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
