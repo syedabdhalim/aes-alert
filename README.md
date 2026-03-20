@@ -14,9 +14,9 @@ Fully offline Android app that warns drivers when approaching AES/AWAS speed enf
 
 | Running on car head unit | Alert overlay |
 |:---:|:---:|
-| ![Car head unit](lib/android-player.jpg) | ![AES warning](lib/aes-warning.jpg) |
+| ![Car head unit](lib/android-player.jpg) | ![AES warning](lib/aes-warning.png) |
 | **Dashboard — PASSED state** | **Dashboard — CLEAR (sim mode)** |
-| ![Passed state](lib/aes-passed.jpg) | ![Default sim mode](<lib/default (sim mode).jpg>) |
+| ![Passed state](lib/aes-passed.png) | ![Default sim mode](<lib/default (sim mode).png>) |
 
 ---
 
