@@ -133,7 +133,7 @@ com.aesalert.app/
 Download the latest APK from the [Releases](https://github.com/syedabdhalim/aes-alert/releases) tab.
 
 1. Transfer the APK to your Android device via USB or any storage
-2. On your device: **Settings > Security > Unknown Sources** (or **Install unknown apps**) — enable for your file manager
+2. On your device: **Settings > Security > Unknown Sources** (or **Install unknown apps**) - enable for your file manager
 3. Open the APK with your file manager and install
 4. Grant location permissions when prompted
 
