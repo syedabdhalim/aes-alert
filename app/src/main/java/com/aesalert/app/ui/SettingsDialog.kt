@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -12,9 +13,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -47,6 +52,8 @@ fun SettingsDialog(
 ) {
     var selected by remember { mutableIntStateOf(currentDistanceM) }
 
+    val uriHandler = LocalUriHandler.current
+
     AlertDialog(
         onDismissRequest = onDismiss,
         containerColor = SurfaceDark,
@@ -59,7 +66,7 @@ fun SettingsDialog(
             )
         },
         text = {
-            Column {
+            Column(modifier = Modifier.wrapContentHeight().verticalScroll(rememberScrollState())) {
                 Text(
                     text = "How far before AES camera to trigger alert?",
                     color = SpeedWhite.copy(alpha = 0.6f),
@@ -132,6 +139,36 @@ fun SettingsDialog(
                         SimChip("Sim JB", InfoBlue) { onSimulate("jb") }
                     }
                 }
+
+                Spacer(modifier = Modifier.height(20.dp))
+                HorizontalDivider(color = SpeedWhite.copy(alpha = 0.1f))
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    text = "About",
+                    color = SpeedWhite.copy(alpha = 0.6f),
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Medium
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Text(
+                    text = "AES Alert Tracker v0.1.0",
+                    color = SpeedWhite,
+                    fontSize = 14.sp
+                )
+
+                Spacer(modifier = Modifier.height(4.dp))
+
+                Text(
+                    text = "github.com/syedabdhalim/aes-alert",
+                    color = InfoBlue,
+                    fontSize = 13.sp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { uriHandler.openUri("https://github.com/syedabdhalim/aes-alert") }
+                )
             }
         },
         confirmButton = {

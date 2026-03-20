@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -53,25 +52,10 @@ fun AlertOverlay(
                 .fillMaxSize()
                 .background(DarkBg.copy(alpha = 0.95f))
                 .border(4.dp, AlertRed, RoundedCornerShape(0.dp))
+                .clickable { onDismiss() }
                 .padding(24.dp),
             contentAlignment = Alignment.Center
         ) {
-            // Dismiss button
-            Box(
-                modifier = Modifier
-                    .align(Alignment.TopEnd)
-                    .clip(RoundedCornerShape(8.dp))
-                    .clickable { onDismiss() }
-                    .border(1.dp, SpeedWhite.copy(alpha = 0.3f), RoundedCornerShape(8.dp))
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
-            ) {
-                Text(
-                    text = "DISMISS",
-                    color = SpeedWhite.copy(alpha = 0.6f),
-                    fontSize = 13.sp,
-                    fontWeight = FontWeight.Medium
-                )
-            }
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -170,6 +154,15 @@ fun AlertOverlay(
                         )
                     }
                 }
+
+                Spacer(modifier = Modifier.height(32.dp))
+
+                Text(
+                    text = "tap anywhere to dismiss",
+                    color = SpeedWhite.copy(alpha = 0.3f),
+                    fontSize = 12.sp,
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }
